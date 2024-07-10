@@ -32,6 +32,12 @@ class AlienInvasion:
             self._update_screen()
             self.clock.tick(60)
 
+            #remover as balas que chegam no topo da tela
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
+            #print(len(self.bullets))
+
     def _check_events(self):
         # Eventos do mouse e teclado
         for event in pygame.event.get():
